@@ -552,7 +552,7 @@ class Service(object):
 
         return outinputs
 
-    @Request.application
+    # @Request.application
     def __call__(self, http_request):
 
         request_uuid = uuid.uuid1()

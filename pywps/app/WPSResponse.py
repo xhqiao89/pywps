@@ -206,7 +206,7 @@ class WPSResponse(object):
         """
         self._close_functions.push(function)
 
-    @Request.application
+    # @Request.application
     def __call__(self, request):
         doc = None
         try:
