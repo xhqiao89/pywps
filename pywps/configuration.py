@@ -132,7 +132,14 @@ def load_configuration(cfgfiles=None):
     else:
         LOGGER.info('No configuration files loaded. Using default values')
 
-    _check_config()
+    cfgfile_folder_fullpath = os.path.dirname(os.path.realpath(cfgfiles[0]))
+    outputs_folder_fullpath = os.path.join(cfgfile_folder_fullpath, "outputs")
+    workdir_folder_fullpath = os.path.join(cfgfile_folder_fullpath, "workdir")
+    log_file_fullpath = os.path.join(cfgfile_folder_fullpath, "pywps.log")
+    CONFIG.set('server', 'outputpath', outputs_folder_fullpath)
+    CONFIG.set('server', 'workdir', workdir_folder_fullpath)
+    CONFIG.set('logging', 'file', log_file_fullpath)
+    # _check_config()
 
 
 def _check_config():
